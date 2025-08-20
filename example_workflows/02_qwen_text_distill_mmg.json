@@ -1,0 +1,93 @@
+{
+  "last_node_id": 6,
+  "last_link_id": 6,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "PrimitiveStringMultiline",
+      "pos": [50, 40],
+      "size": [380, 150],
+      "outputs": [{"name": "STRING", "type": "STRING", "links": [1]}],
+      "title": "正向提示词",
+      "widgets_values": ["清晨阳光，安静街巷，油画风，质感细腻，真实光影"]
+    },
+    {
+      "id": 2,
+      "type": "PrimitiveStringMultiline",
+      "pos": [50, 210],
+      "size": [380, 130],
+      "outputs": [{"name": "STRING", "type": "STRING", "links": [2]}],
+      "title": "负向提示词",
+      "widgets_values": ["低质、噪点、过曝、伪影、文字、Logo"]
+    },
+    {
+      "id": 3,
+      "type": "QwenImageDiffSynthRatio2Size",
+      "pos": [460, 40],
+      "size": [300, 90],
+      "outputs": [
+        {"name": "width", "type": "INT", "links": [3]},
+        {"name": "height", "type": "INT", "links": [4]}
+      ],
+      "widgets_values": ["1:1"]
+    },
+    {
+      "id": 4,
+      "type": "QwenImageDiffSynthDistillPipelineLoader",
+      "pos": [460, 140],
+      "size": [480, 160],
+      "outputs": [{"name": "pipeline", "type": "QWEN_PIPELINE", "links": [5]}],
+      "widgets_values": [
+        "LowRAM_LowVRAM",
+        true,
+        "bfloat16",
+        "none",
+        "",
+        false,
+        "DiffSynth-Studio/Qwen-Image-Distill-LoRA",
+        "models/DiffSynth-Studio/Qwen-Image-Distill-LoRA",
+        "model.safetensors",
+        false,
+        "DiffSynth-Studio/Qwen-Image-EliGen",
+        "models/DiffSynth-Studio/Qwen-Image-EliGen",
+        "model.safetensors",
+        "auto_accumulate",
+        false,
+        false
+      ]
+    },
+    {
+      "id": 5,
+      "type": "QwenImageDiffSynthAdvancedSampler",
+      "pos": [980, 60],
+      "size": [520, 240],
+      "inputs": [
+        {"name": "pipeline", "type": "QWEN_PIPELINE", "link": 5},
+        {"name": "prompt", "type": "STRING", "link": 1},
+        {"name": "negative_prompt", "type": "STRING", "link": 2},
+        {"name": "width", "type": "INT", "link": 3},
+        {"name": "height", "type": "INT", "link": 4}
+      ],
+        "outputs": [{"name": "image", "type": "IMAGE", "links": [6]}],
+      "widgets_values": ["", "", 1024, 1024, 8, 3.2, 2025, "randomize"]
+    },
+    {
+      "id": 6,
+      "type": "PreviewImage",
+      "pos": [1540, 60],
+      "size": [280, 240],
+      "inputs": [{"name": "images", "type": "IMAGE", "link": 6}]
+    }
+  ],
+  "links": [
+    [1, 1, 0, 5, 1, "STRING"],
+    [2, 2, 0, 5, 2, "STRING"],
+    [3, 3, 0, 5, 3, "INT"],
+    [4, 3, 1, 5, 4, "INT"],
+    [5, 4, 0, 5, 0, "QWEN_PIPELINE"],
+    [6, 5, 0, 6, 0, "IMAGE"]
+  ],
+  "groups": [],
+  "extra": {"frontendVersion": "1.23.4"},
+  "version": 0.4
+}

@@ -1,0 +1,22 @@
+{
+  "last_node_id": 16,
+  "last_link_id": 18,
+  "nodes": [
+    {"id":1,"type":"PrimitiveStringMultiline","pos":[40,40],"size":[380,140],"outputs":[{"name":"STRING","type":"STRING","links":[1]}],"title":"正向提示词","widgets_values":["科幻飞船，星际背景，HDR，超清，电影级氛围"]},
+    {"id":2,"type":"PrimitiveStringMultiline","pos":[40,200],"size":[380,120],"outputs":[{"name":"STRING","type":"STRING","links":[2]}],"title":"负向提示词","widgets_values":["模糊、噪点、低清晰、过曝"]},
+    {"id":3,"type":"QwenImageDiffSynthRatio2Size","pos":[450,40],"size":[300,90],"outputs":[{"name":"width","type":"INT","links":[3]},{"name":"height","type":"INT","links":[4]}],"widgets_values":["16:9"]},
+    {"id":4,"type":"QwenImageDiffSynthLoRALoader","pos":[450,140],"size":[420,160],"outputs":[{"name":"lora","type":"QWEN_LORA","links":[5]}],"widgets_values":["your_lora.safetensors",1.0]},
+    {"id":5,"type":"QwenImageDiffSynthPipelineLoader","pos":[450,320],"size":[520,160],"outputs":[{"name":"pipeline","type":"QWEN_PIPELINE","links":[6]}],
+     "widgets_values":["HighRAM_LowVRAM",true,"bfloat16",null,null,"none",false,"DiffSynth-Studio/Qwen-Image-Distill-LoRA","models/DiffSynth-Studio/Qwen-Image-Distill-LoRA","model.safetensors",false,"DiffSynth-Studio/Qwen-Image-EliGen","models/DiffSynth-Studio/Qwen-Image-EliGen","model.safetensors","auto_accumulate",false,false]},
+    {"id":6,"type":"QwenImageDiffSynthAdvancedSampler","pos":[1020,60],"size":[540,260],
+     "inputs":[{"name":"pipeline","type":"QWEN_PIPELINE","link":6},{"name":"eligen_args","type":"ELIGEN_ARGS","link":null},{"name":"control_args","type":"CONTROL_ARGS","link":null},{"name":"prompt","type":"STRING","link":1},{"name":"negative_prompt","type":"STRING","link":2},{"name":"width","type":"INT","link":3},{"name":"height","type":"INT","link":4}],
+     "outputs":[{"name":"image","type":"IMAGE","links":[7]}],
+     "widgets_values":["","",1664,928,22,5.0,999,"randomize"]},
+    {"id":7,"type":"PreviewImage","pos":[1600,60],"size":[280,240],"inputs":[{"name":"images","type":"IMAGE","link":7}],"title":"结果"}
+  ],
+  "links": [[1,1,0,6,3,"STRING"],[2,2,0,6,4,"STRING"],[3,3,0,6,5,"INT"],[4,3,1,6,6,"INT"],[5,4,0,5,0,"QWEN_LORA"],[6,5,0,6,0,"QWEN_PIPELINE"],[7,6,0,7,0,"IMAGE"]],
+  "groups": [],
+  "extra": {"frontendVersion": "1.23.4"},
+  "version": 0.4
+}
+

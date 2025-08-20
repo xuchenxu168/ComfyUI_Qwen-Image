@@ -1,0 +1,401 @@
+{
+  "id": "dc637712-943a-45a3-bc0c-a19e56a5b3a9",
+  "revision": 0,
+  "last_node_id": 18,
+  "last_link_id": 26,
+  "nodes": [
+    {
+      "id": 9,
+      "type": "PreviewImage",
+      "pos": [
+        1851.3199462890625,
+        -342.45361328125
+      ],
+      "size": [
+        280,
+        246
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 26
+        }
+      ],
+      "outputs": [],
+      "title": "结果（HighRAM_LowVRAM）",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.50",
+        "Node name for S&R": "PreviewImage",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 5,
+      "type": "QwenImageDiffSynthAdvancedSampler",
+      "pos": [
+        1119.426025390625,
+        -359.3980712890625
+      ],
+      "size": [
+        540,
+        456
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pipeline",
+          "type": "QWEN_PIPELINE",
+          "link": 5
+        },
+        {
+          "name": "eligen_args",
+          "shape": 7,
+          "type": "ELIGEN_ARGS",
+          "link": null
+        },
+        {
+          "name": "control_args",
+          "shape": 7,
+          "type": "CONTROL_ARGS",
+          "link": null
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 24
+        },
+        {
+          "name": "negative_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "negative_prompt"
+          },
+          "link": 25
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 22
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 23
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            26
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "QwenImageDiffSynthAdvancedSampler",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "prompt": true,
+            "negative_prompt": true,
+            "width": true,
+            "height": true
+          },
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "",
+        "",
+        1664,
+        928,
+        20,
+        5,
+        2324323498,
+        "randomize",
+        "enhanced_quality",
+        0,
+        true,
+        0.3,
+        1.1,
+        [
+          false,
+          true
+        ],
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        433.7468566894531,
+        -310.227294921875
+      ],
+      "size": [
+        380,
+        140
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            24
+          ]
+        }
+      ],
+      "title": "正向提示词",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.50",
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "山谷清晨，薄雾阳光，油画风，精致细节，超清",
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        444.4150695800781,
+        -105.3600082397461
+      ],
+      "size": [
+        380,
+        120
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            25
+          ]
+        }
+      ],
+      "title": "负向提示词",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.50",
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "模糊、噪点、低清晰、过曝",
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "type": "QwenImageDiffSynthRatio2Size",
+      "pos": [
+        485.9143981933594,
+        89.3279037475586
+      ],
+      "size": [
+        300,
+        90
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            22
+          ]
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "QwenImageDiffSynthRatio2Size",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "16:9"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "QwenImageDiffSynthPipelineLoader",
+      "pos": [
+        -146.61444091796875,
+        -284.7640380859375
+      ],
+      "size": [
+        520,
+        222
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora",
+          "shape": 7,
+          "type": "QWEN_LORA",
+          "link": null
+        },
+        {
+          "name": "controlnet",
+          "shape": 7,
+          "type": "QWEN_CONTROLNET",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "pipeline",
+          "type": "QWEN_PIPELINE",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "QwenImageDiffSynthPipelineLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "HighRAM_HighVRAM",
+        true,
+        "bfloat16",
+        "Qwen-Image-Distill-Full",
+        "NONE",
+        "NONE",
+        "NONE"
+      ]
+    }
+  ],
+  "links": [
+    [
+      5,
+      4,
+      0,
+      5,
+      0,
+      "QWEN_PIPELINE"
+    ],
+    [
+      22,
+      3,
+      0,
+      5,
+      5,
+      "INT"
+    ],
+    [
+      23,
+      3,
+      1,
+      5,
+      6,
+      "INT"
+    ],
+    [
+      24,
+      1,
+      0,
+      5,
+      3,
+      "STRING"
+    ],
+    [
+      25,
+      2,
+      0,
+      5,
+      4,
+      "STRING"
+    ],
+    [
+      26,
+      5,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "frontendVersion": "1.25.9",
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "ds": {
+      "scale": 0.620921323059155,
+      "offset": [
+        363.88799355723637,
+        838.7440118756545
+      ]
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}

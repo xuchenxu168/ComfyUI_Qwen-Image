@@ -1,0 +1,24 @@
+{
+  "last_node_id": 22,
+  "last_link_id": 24,
+  "nodes": [
+    {"id":1,"type":"PrimitiveStringMultiline","pos":[40,40],"size":[380,140],"outputs":[{"name":"STRING","type":"STRING","links":[1]}],"title":"正向提示词","widgets_values":["古风人物，飘逸长发，丝绸衣物，写实风，超清"]},
+    {"id":2,"type":"PrimitiveStringMultiline","pos":[40,200],"size":[380,120],"outputs":[{"name":"STRING","type":"STRING","links":[2]}],"title":"负向提示词","widgets_values":["模糊、噪点、低清晰、过曝"]},
+    {"id":3,"type":"QwenImageDiffSynthRatio2Size","pos":[450,40],"size":[300,90],"outputs":[{"name":"width","type":"INT","links":[3]},{"name":"height","type":"INT","links":[4]}],"widgets_values":["3:4"]},
+    {"id":4,"type":"QwenImageDiffSynthLoRALoader","pos":[450,140],"size":[420,160],"outputs":[{"name":"lora","type":"QWEN_LORA","links":[5]}],"widgets_values":["lora_a.safetensors",0.8]},
+    {"id":5,"type":"QwenImageDiffSynthLoRALoader","pos":[450,320],"size":[420,160],"outputs":[{"name":"lora","type":"QWEN_LORA","links":[6]}],"widgets_values":["lora_b.safetensors",1.2]},
+    {"id":6,"type":"QwenImageDiffSynthLoRAMulti","pos":[900,220],"size":[420,120],"inputs":[{"name":"lora_a","type":"QWEN_LORA","link":5},{"name":"lora_b","type":"QWEN_LORA","link":6}],"outputs":[{"name":"lora","type":"QWEN_LORA","links":[7]}],"widgets_values":[]},
+    {"id":7,"type":"QwenImageDiffSynthPipelineLoader","pos":[900,360],"size":[520,160],"outputs":[{"name":"pipeline","type":"QWEN_PIPELINE","links":[8]}],
+     "widgets_values":["HighRAM_LowVRAM",true,"bfloat16",null,null,"none",false,"DiffSynth-Studio/Qwen-Image-Distill-LoRA","models/DiffSynth-Studio/Qwen-Image-Distill-LoRA","model.safetensors",false,"DiffSynth-Studio/Qwen-Image-EliGen","models/DiffSynth-Studio/Qwen-Image-EliGen","model.safetensors","auto_accumulate",false,false]},
+    {"id":8,"type":"QwenImageDiffSynthAdvancedSampler","pos":[1480,100],"size":[540,260],
+     "inputs":[{"name":"pipeline","type":"QWEN_PIPELINE","link":8},{"name":"eligen_args","type":"ELIGEN_ARGS","link":null},{"name":"control_args","type":"CONTROL_ARGS","link":null},{"name":"prompt","type":"STRING","link":1},{"name":"negative_prompt","type":"STRING","link":2},{"name":"width","type":"INT","link":3},{"name":"height","type":"INT","link":4}],
+     "outputs":[{"name":"image","type":"IMAGE","links":[9]}],
+     "widgets_values":["","",1140,1472,22,5.0,4321,"randomize"]},
+    {"id":9,"type":"PreviewImage","pos":[2040,100],"size":[280,240],"inputs":[{"name":"images","type":"IMAGE","link":9}],"title":"结果"}
+  ],
+  "links": [[1,1,0,8,3,"STRING"],[2,2,0,8,4,"STRING"],[3,3,0,8,5,"INT"],[4,3,1,8,6,"INT"],[5,4,0,6,0,"QWEN_LORA"],[6,5,0,6,1,"QWEN_LORA"],[7,6,0,7,0,"QWEN_LORA"],[8,7,0,8,0,"QWEN_PIPELINE"],[9,8,0,9,0,"IMAGE"]],
+  "groups": [],
+  "extra": {"frontendVersion": "1.23.4"},
+  "version": 0.4
+}
+
