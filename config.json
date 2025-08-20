@@ -1,0 +1,55 @@
+{
+  "model": {
+    "default_model_id": "Qwen/Qwen-Image",
+    "cache_dir": "",
+    "torch_dtype": "auto",
+    "device": "auto",
+    "use_safetensors": true,
+    "enable_model_cache": true,
+    "max_cached_models": 2
+  },
+  "generation": {
+    "default_aspect_ratio": "16:9",
+    "default_steps": 50,
+    "default_cfg_scale": 4.0,
+    "enable_prompt_enhancement": true,
+    "max_prompt_length": 1000,
+    "default_language": "auto"
+  },
+  "text_rendering": {
+    "default_style": "elegant",
+    "default_color": "black",
+    "default_size": "medium",
+    "default_position": "center",
+    "enable_chinese_optimization": true,
+    "fallback_font_rendering": true
+  },
+  "editing": {
+    "default_strength": 0.8,
+    "default_edit_steps": 50,
+    "default_guidance_scale": 7.5,
+    "enable_mask_preprocessing": true
+  },
+  "performance": {
+    "enable_memory_optimization": true,
+    "enable_attention_slicing": false,
+    "enable_cpu_offload": false,
+    "batch_size": 1,
+    "enable_xformers": false
+  },
+  "ui": {
+    "show_advanced_options": false,
+    "enable_progress_bar": true,
+    "auto_preview": true,
+    "save_generation_params": true
+  },
+  "logging": {
+    "log_level": "INFO",
+    "enable_generation_logging": true,
+    "log_file": "qwen_image.log"
+  },
+  "test": {
+    "value": "test_value_123",
+    "deployment_check": "deployment_test_value"
+  }
+}

@@ -1,0 +1,40 @@
+# Unified requirements for ComfyUI_Qwen-Image (includes DiffSynth integration)
+# Note: DiffSynth-Studio itself should be installed from source (see README).
+
+# Core runtime
+torch>=2.0.0
+torchvision>=0.15.0
+transformers>=4.51.3
+diffusers>=0.30.0
+accelerate>=0.20.0
+safetensors>=0.3.0
+packaging>=21.0
+requests>=2.28.0
+
+# Image processing
+Pillow>=9.5.0
+opencv-python>=4.8.0
+numpy>=1.21.0
+scikit-image>=0.20.0
+
+# ControlNet preprocessing
+controlnet-aux>=0.0.6
+mediapipe>=0.10.0
+# Depth preprocessors (e.g., MiDaS via timm)
+timm>=0.9.0
+
+# Model/data hubs
+huggingface-hub>=0.16.0
+datasets>=2.0.0
+modelscope>=1.9.0
+
+# Utilities
+tqdm>=4.65.0
+
+# VRAM optimization (MMGP)
+mmgp>=3.5.0
+
+# Optional extras (uncomment if desired)
+# xformers>=0.0.20      # memory efficient attention
+# bitsandbytes>=0.41.0  # quantization support
+# flash-attn>=2.0.0     # FlashAttention (requires specific CUDA/PyTorch)

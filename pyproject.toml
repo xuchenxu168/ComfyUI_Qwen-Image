@@ -1,0 +1,84 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "comfyui-qwen-image"
+version = "1.0.0"
+description = "ComfyUI plugin for Qwen-Image model with advanced text rendering and image generation capabilities"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "Augment Agent", email = "agent@augmentcode.com"}
+]
+keywords = [
+    "comfyui",
+    "qwen-image", 
+    "text-to-image",
+    "image-generation",
+    "chinese-text-rendering",
+    "diffusion-models",
+    "ai-art"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Multimedia :: Graphics",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "torch>=2.0.0",
+    "torchvision>=0.15.0", 
+    "transformers>=4.51.3",
+    "diffusers>=0.30.0",
+    "accelerate>=0.20.0",
+    "safetensors>=0.3.0",
+    "Pillow>=9.0.0",
+    "opencv-python>=4.5.0",
+    "numpy>=1.21.0",
+    "huggingface-hub>=0.16.0",
+    "datasets>=2.0.0",
+    "tqdm>=4.64.0",
+    "requests>=2.28.0",
+    "packaging>=21.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=22.0.0",
+    "isort>=5.10.0",
+    "flake8>=4.0.0",
+]
+performance = [
+    "xformers>=0.0.20",
+    "bitsandbytes>=0.41.0",
+    "flash-attn>=2.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/QwenLM/Qwen-Image"
+Repository = "https://github.com/QwenLM/Qwen-Image"
+Documentation = "https://github.com/QwenLM/Qwen-Image/blob/main/README.md"
+"Bug Tracker" = "https://github.com/QwenLM/Qwen-Image/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+line_length = 88
