@@ -13,7 +13,7 @@ authors = [
 ]
 keywords = [
     "comfyui",
-    "qwen-image", 
+    "qwen-image",
     "text-to-image",
     "image-generation",
     "chinese-text-rendering",
@@ -35,22 +35,9 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
 requires-python = ">=3.8"
-dependencies = [
-    "torch>=2.0.0",
-    "torchvision>=0.15.0", 
-    "transformers>=4.51.3",
-    "diffusers>=0.30.0",
-    "accelerate>=0.20.0",
-    "safetensors>=0.3.0",
-    "Pillow>=9.0.0",
-    "opencv-python>=4.5.0",
-    "numpy>=1.21.0",
-    "huggingface-hub>=0.16.0",
-    "datasets>=2.0.0",
-    "tqdm>=4.64.0",
-    "requests>=2.28.0",
-    "packaging>=21.0",
-]
+# Dependencies are sourced from requirements.txt during publishing/installation
+# Keeping this empty avoids version drift between files.
+dependencies = []
 
 [project.optional-dependencies]
 dev = [
@@ -66,10 +53,10 @@ performance = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/QwenLM/Qwen-Image"
-Repository = "https://github.com/QwenLM/Qwen-Image"
-Documentation = "https://github.com/QwenLM/Qwen-Image/blob/main/README.md"
-"Bug Tracker" = "https://github.com/QwenLM/Qwen-Image/issues"
+Homepage = "https://github.com/xuchenxu168/ComfyUI_Qwen-Image"
+Repository = "https://github.com/xuchenxu168/ComfyUI_Qwen-Image"
+Documentation = "https://github.com/xuchenxu168/ComfyUI_Qwen-Image#readme"
+"Bug Tracker" = "https://github.com/xuchenxu168/ComfyUI_Qwen-Image/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
@@ -82,3 +69,13 @@ target-version = ['py38']
 [tool.isort]
 profile = "black"
 line_length = 88
+
+
+# Comfy Registry metadata
+[tool.comfy]
+# TODO: Replace with your real PublisherId from https://registry.comfy.org (profile page)
+PublisherId = "ken-chen"
+# This is how your node shows up in the Registry; you can change it later.
+DisplayName = "ComfyUI Qwen-Image + DiffSynth"
+# Optional, but recommended: 800x400 or smaller, absolute URL
+Icon = "https://raw.githubusercontent.com/xuchenxu168/ComfyUI_Qwen-Image/main/icon.png"
