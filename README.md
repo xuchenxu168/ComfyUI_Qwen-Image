@@ -14,7 +14,7 @@ This README consolidates and updates all features in this project, including the
 
 ## Installation
 1) Clone into ComfyUI/custom_nodes
-   - git clone https://github.com/your-repo/ComfyUI_Qwen-Image.git
+   - git clone https://github.com/xuchenxu168/ComfyUI_Qwen-Image.git
 2) Install dependencies
    - pip install -r requirements.txt
 3) Install DiffSynth-Studio (required for DiffSynth nodes)
